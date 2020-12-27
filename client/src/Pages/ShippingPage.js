@@ -60,11 +60,11 @@ function ShippingPage(props) {
         </Form.Group>
 
         <Form.Group controlId="formBasicPassword">
-          <Form.Label>Confirm Password</Form.Label>
+          <Form.Label>Country</Form.Label>
           <Form.Control
             type="text"
             placeholder="Country"
-            name="repassowrd"
+            name="country"
             onChange={(e) => setCountry(e.target.value)}
           />
         </Form.Group>

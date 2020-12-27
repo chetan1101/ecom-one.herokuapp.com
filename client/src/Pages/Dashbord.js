@@ -29,7 +29,7 @@ function Dashbord() {
 
   return ( loading ? <Loading/> : error ? <div>{error}</div> :
     <div>
-    <Button className="m-3" variant="primary" size="lg" onClick={()=>history.push("/create-product")}>
+    <Button className="mx-3 mb-3" variant="primary" size="lg" onClick={()=>history.push("/create-product")}>
       Add New Product
     </Button>
       <Table striped bordered hover>

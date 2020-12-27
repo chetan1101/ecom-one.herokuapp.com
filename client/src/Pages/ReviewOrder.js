@@ -27,12 +27,12 @@ function ReviewOrder(props) {
 
   return (
     <>
-      <div style={{ width: "50%", margin: "30px auto 0" }}>
-        <ChckoutSteps step1 step2 step3 step4/>
-      </div>
+      
 
       <Container style={{ marginTop: "15px" }}>
-
+      <div style={{ width: "100%", margin: "0 auto" }}>
+        <ChckoutSteps step1 step2 step3 step4/>
+      </div>
         <Row>
           <Col sm={8}>
             <Card className="mb-3">
@@ -52,7 +52,7 @@ function ReviewOrder(props) {
 
             <Card className="mb-3">
               <Card.Body>
-              <h5>Shipping address</h5>
+              <h5>Payment</h5>
                 <div className="info_box">
                     <p>Payment: {cart.payment}</p>
                 </div>
