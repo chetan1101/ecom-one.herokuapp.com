@@ -25,7 +25,7 @@ footer{
   font-size: 14px;
 }
 .form_container{
-  width: 50%;
+  width: 65%;
   margin: 50px auto;
   border: 1px solid #ccc;
   padding: 30px 20px;
@@ -35,6 +35,8 @@ footer{
   width: 75%;
   text-align: center;
   margin-bottom: 20px;
+  padding: 0.75rem 0;
+
 }
 .info_box p{
   margin: 0;
@@ -48,5 +50,10 @@ footer{
   .form_container{
     width: 90%;
   }
-  
+}
+
+@media (max-width:558px){
+  .list-group-item{
+    font-size: 12px;
+  }
 }
