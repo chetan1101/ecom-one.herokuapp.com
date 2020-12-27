@@ -33,7 +33,7 @@ function ProductView(porps) {
     <>
    
       <Container>
-        <Breadcrumb style={{ marginTop: "15px" }}>
+        <Breadcrumb>
           <Breadcrumb.Item>
             <Link to="/">Home</Link>
           </Breadcrumb.Item>
@@ -49,12 +49,12 @@ function ProductView(porps) {
             <div>{error}</div>
           ) : (
             <>
-              <Col xs={12} md={4}>
+              <Col xs={12}sm={6} className="mb-4">
                 <Card border="warning">
                   <Image src={product.image} alt={product.name} />
                 </Card>
               </Col>
-              <Col xs={12} md={8}>
+              <Col xs={12} sm={6} className="mb-4">
                 <Card>
                   <Card.Header>
                     <h4>{product.name}</h4>

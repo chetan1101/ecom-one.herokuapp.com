@@ -39,8 +39,8 @@ function Cart(props) {
   }
 
   return (
-    <Container style={{ marginTop: "15px" }}>
-      <Breadcrumb style={{ marginTop: "15px" }}>
+    <Container>
+      <Breadcrumb>
         <Breadcrumb.Item>
           <Link to="/">Home</Link>
         </Breadcrumb.Item>
