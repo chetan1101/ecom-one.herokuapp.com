@@ -130,11 +130,11 @@ function Cart(props) {
                   {cartItems.reduce(
                     (oldItems, newItem) => oldItems + newItem.Qty,
                     0
-                  )}{" "}
+                  )}
                   Items):
                 </div>
                 <div className="pr-1">
-                  Rs.{" "}
+                  Rs.
                   {cartItems.reduce(
                     (oldItems, newItem) =>
                       oldItems + newItem.price * newItem.Qty,

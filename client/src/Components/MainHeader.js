@@ -9,10 +9,13 @@ import {
   Dropdown,
 } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function MainHeader() {
-  const userInfo = Cookie.getJSON("userInfo");
+  const userSignin = useSelector(state=>state.userSignin);
 
+  const {userInfo} = userSignin;
+ // const userInfo = Cookie.getJSON("userInfo");
   const history = useHistory();
 
   return (
@@ -65,7 +68,10 @@ function MainHeader() {
               </Dropdown.Toggle>
 
               <Dropdown.Menu>
-                <Dropdown.Item onClick={()=>history.push("/dashbord")}>Dashbord</Dropdown.Item>
+                {userInfo.email === "ctn@MediaList.com" &&
+                  <Dropdown.Item onClick={()=>history.push("/dashbord")}>Manage Products</Dropdown.Item>
+                } 
+                <Dropdown.Item onClick={()=>history.push('/cart')}>My Cart</Dropdown.Item>
                 <Dropdown.Item>Profile</Dropdown.Item>
                 <Dropdown.Item>Logout</Dropdown.Item>
               </Dropdown.Menu>

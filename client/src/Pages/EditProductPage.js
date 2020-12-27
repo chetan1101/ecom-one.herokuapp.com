@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Button, Form } from "react-bootstrap";
 import { connect } from "react-redux";
+import Loading from "../Components/Loading";
 import { getProduct, editProduct } from "../Store/Actions/productActions";
 
 class EditProductPage extends Component {
@@ -48,7 +49,7 @@ class EditProductPage extends Component {
 
     const { product, loading, error } = this.state;
     return loading ? (
-      <div>Loading...</div>
+      <Loading/>
     ) : error ? (
       <div>{error}</div>
     ) : (

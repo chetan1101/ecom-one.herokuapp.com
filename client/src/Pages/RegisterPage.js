@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
-import { userRegister } from "../Store/Actions/userActions";
+import Loading from "../Components/Loading";
+import { userRegister, userSignIn } from "../Store/Actions/userActions";
 
 function RegisterPage(props) {
   const newUserRegister = useSelector((state) => state.newUserRegister);
@@ -17,7 +18,8 @@ function RegisterPage(props) {
 
   useEffect(() => {
     if(userInfo){
-      history.push(redirect)
+      dispatch(userSignIn(email,password))
+      history.push(redirect);
     }
  
   }, [userInfo])
@@ -28,7 +30,7 @@ function RegisterPage(props) {
 
   };
   return loading ? (
-    <div>loading...</div>
+    <Loading/>
   ) : error ? (
     <div>{error}</div>
   ) : (

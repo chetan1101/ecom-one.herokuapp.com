@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Cookie from "js-cookie";
 import {
   Button,
@@ -17,8 +17,13 @@ function ReviewOrder(props) {
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
   const userInfo = Cookie.getJSON("userInfo");
+
+  const itemPrice = cartItems.reduce((oldItems, newItem) => oldItems + newItem.Qty,0);
+  const shippingPrice = itemPrice > 100 ? 0 : 10;
+  const textPrice = 0.15 * itemPrice;
+  const totalPrice = itemPrice + shippingPrice + textPrice;
  console.log(cart)
-  useEffect(() => {}, []);
+
 
   return (
     <>
@@ -64,12 +69,8 @@ function ReviewOrder(props) {
                 </tr>
               </thead>
               <tbody>
-                {cartItems.length === 0 ? (
-                  <tr>
-                    <td colSpan="3">Cart is empty</td>
-                  </tr>
-                ) : (
-                  cartItems.map((item) => (
+               
+                  {cartItems.map((item) => 
                     <tr>
                       <td width="90">
                         <Image width="70" src={item.image} />
@@ -86,30 +87,41 @@ function ReviewOrder(props) {
                         Rs. {item.price}
                       </td>
                     </tr>
-                  ))
-                )}
+                  )}
+              
               </tbody>
             </Table>
           </Col>
           <Col sm={4}>
             <Card>
               <Card.Body>
+        
                 <div className="d-flex justify-content-between">
                   <div className="pl-1">
-                    Subtotal (
-                    {cartItems.reduce(
-                      (oldItems, newItem) => oldItems + newItem.Qty,
-                      0
-                    )}
-                    Items):
+                    Price:
                   </div>
                   <div className="pr-1">
-                    Rs.
-                    {cartItems.reduce(
-                      (oldItems, newItem) =>
-                        oldItems + newItem.price * newItem.Qty,
-                      0
-                    )}
+                    Rs. {itemPrice}
+                  </div>
+                </div>
+
+
+                <div className="d-flex justify-content-between">
+                  <div className="pl-1">
+                    Shipping:
+                  </div>
+                  <div className="pr-1">
+                    Rs. {shippingPrice}
+                  </div>
+                </div>
+
+
+                <div className="d-flex justify-content-between">
+                  <div className="pl-1">
+                    Total Price:
+                  </div>
+                  <div className="pr-1">
+                    Rs. {totalPrice}
                   </div>
                 </div>
                 <Button
@@ -117,8 +129,6 @@ function ReviewOrder(props) {
                   variant="primary"
                   size="lg"
                   block
-                  disabled={cartItems.length === 0}
-                  onClick=""
                 >
                 Make payment
                 </Button>

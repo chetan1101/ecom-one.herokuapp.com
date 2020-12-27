@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Button, ButtonGroup, Image, Table } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import Loading from "../Components/Loading";
 import {  delProduct, getProductList } from "../Store/Actions/productActions";
 
 function Dashbord() {
@@ -26,7 +27,7 @@ function Dashbord() {
       }
     }
 
-  return ( loading ? <div>Loading...</div> : error ? <div>{error}</div> :
+  return ( loading ? <Loading/> : error ? <div>{error}</div> :
     <div>
     <Button className="m-3" variant="primary" size="lg" onClick={()=>history.push("/create-product")}>
       Add New Product

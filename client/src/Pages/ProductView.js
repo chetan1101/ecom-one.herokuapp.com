@@ -12,6 +12,7 @@ import {
 } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
+import Loading from "../Components/Loading";
 import { getProduct } from "../Store/Actions/productActions";
 
 function ProductView(porps) {
@@ -43,7 +44,7 @@ function ProductView(porps) {
         </Breadcrumb>
         <Row>
           {loading ? (
-            <div>loading...</div>
+            <Loading/>
           ) : error ? (
             <div>{error}</div>
           ) : (

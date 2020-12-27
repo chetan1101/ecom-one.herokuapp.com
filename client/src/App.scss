@@ -39,3 +39,14 @@ footer{
 .info_box p{
   margin: 0;
 }
+.loading_box{
+  position: relative;
+  left: 48%;
+  top: 100px;
+}
+@media (max-width:900px){
+  .form_container{
+    width: 90%;
+  }
+  
+}

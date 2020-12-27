@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import Loading from "../Components/Loading";
 import { userSignIn } from "../Store/Actions/userActions";
 
 function SigninPage(props) {
@@ -21,7 +21,7 @@ function SigninPage(props) {
       e.preventDefault();
       dispatch(userSignIn(email, password))
   }
-  return ( loading ? <div>loading...</div> : error ? <div>{error}</div> :
+  return ( loading ? <Loading/> : error ? <div>{error}</div> :
     <div className="form_container">
         <h4 className="mb-4 bg-light p-2">Sign-In</h4>
       <Form onSubmit={(e)=>sumbitHandler(e)}>

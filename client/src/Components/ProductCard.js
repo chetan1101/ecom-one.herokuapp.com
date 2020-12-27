@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom';
 function ProductCard({item}) {
     const history = useHistory();
     return (
-        <Col sm={3}>
+        <Col lg={3} md={4} sm={6} className="mb-4">
             <Card>
               <Card.Img variant="top" src={item.image} />
               <Card.Body>

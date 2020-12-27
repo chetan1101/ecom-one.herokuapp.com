@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
+import Loading from "../Components/Loading";
 import { addNewProduct } from "../Store/Actions/productActions";
 
 function CreateProduct(props) {
@@ -27,10 +28,9 @@ function CreateProduct(props) {
     dispatch(addNewProduct({name,image,price,category,brand,qty,description}));
     props.history.push("/dashbord")
   };
-  return (
+  return ( loadingSave ? <Loading/> :
     <div className="form_container">
     <h4 className="mb-4 bg-light p-2">Add Product</h4>
-    {loadingSave && <div>Loading...</div>}
     {successSave && <div>success</div>}
     {errorSave && <div>error...</div>}
     <Form onSubmit={(e) => sumbitHandler(e)}>

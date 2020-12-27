@@ -3,6 +3,7 @@ import { Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 
 import { getProductList } from "../Store/Actions/productActions";
+import Loading from "./Loading";
 import ProductCard from "./ProductCard";
 
 function HomeProducts() {
@@ -15,7 +16,7 @@ function HomeProducts() {
   }, []);
 
   return loading ? (
-    <div>loading</div>
+    <Loading />
   ) : error ? (
     <div>{error}</div>
   ) : (
