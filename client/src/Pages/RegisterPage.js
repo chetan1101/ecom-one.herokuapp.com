@@ -35,7 +35,7 @@ function RegisterPage(props) {
     <div>{error}</div>
   ) : (
     <div className="form_container">
-      <h4 className="mb-4 bg-light p-2">Create an account</h4>
+      <h4 className="mb-4 bg-light p-2">Register</h4>
       <Form onSubmit={(e) => sumbitHandler(e)} autoComplete="off">
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Name</Form.Label>
