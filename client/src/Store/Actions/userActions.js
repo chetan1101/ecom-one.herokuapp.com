@@ -1,6 +1,6 @@
 import Axios from "axios";
 import Cookie from 'js-cookie';
-import { GET_REGISTER_FAIL, GET_REGISTER_REQUEST, GET_REGISTER_SUCCESS, GET_SIGNIN_FAIL, GET_SIGNIN_REQUEST, GET_SIGNIN_SUCCESS } from "./actionTypes";
+import { GET_REGISTER_FAIL, GET_REGISTER_REQUEST, GET_REGISTER_SUCCESS, GET_SIGNIN_FAIL, GET_SIGNIN_REQUEST, GET_SIGNIN_SUCCESS,GET_SIGNOUT } from "./actionTypes";
 
 export const userSignIn = (email, password) => async (dispatch) => {
   dispatch({ type: GET_SIGNIN_REQUEST, payload: { email, password } });
@@ -22,4 +22,9 @@ export const userRegister = (name, email, password) => async (dispatch) => {
   } catch (error) {
     dispatch({type:GET_REGISTER_FAIL, payload: error.msg})
   }
+}
+export const userSignout = () => (dispatch) => {
+  dispatch({type: GET_SIGNOUT});
+  Cookie.remove("userInfo");
+  Cookie.remove("cartItems");
 }

@@ -19,6 +19,7 @@ export const CART_SAVE_PAYMENT = "CART_SAVE_PAYMENT";
 export const GET_SIGNIN_REQUEST = "GET_SIGNIN_REQUEST";
 export const GET_SIGNIN_SUCCESS = "GET_SIGNIN_SUCCESS";
 export const GET_SIGNIN_FAIL = "GET_SIGNIN_FAIL";
+export const GET_SIGNOUT = "GET_SIGNOUT";
 
 // signup constants
 export const GET_REGISTER_REQUEST = "GET_REGISTER_REQUEST";

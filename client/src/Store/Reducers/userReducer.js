@@ -1,4 +1,4 @@
-import { GET_REGISTER_FAIL, GET_REGISTER_REQUEST, GET_REGISTER_SUCCESS, GET_SIGNIN_FAIL, GET_SIGNIN_REQUEST, GET_SIGNIN_SUCCESS } from "../Actions/actionTypes";
+import { GET_REGISTER_FAIL, GET_REGISTER_REQUEST, GET_REGISTER_SUCCESS, GET_SIGNIN_FAIL, GET_SIGNIN_REQUEST, GET_SIGNIN_SUCCESS,GET_SIGNOUT } from "../Actions/actionTypes";
 
 export const userSigninReducer = (state={}, action) => {
     switch (action.type) {
@@ -16,6 +16,8 @@ export const userSigninReducer = (state={}, action) => {
                 loading:false,
                 error:action.payload
             }
+        case GET_SIGNOUT:
+            return{}
         default:
             return state;
     }

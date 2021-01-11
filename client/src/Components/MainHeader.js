@@ -1,5 +1,4 @@
 import React from "react";
-import Cookie from "js-cookie";
 import {
   Nav,
   Navbar,
@@ -9,7 +8,8 @@ import {
   Dropdown,
 } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { userSignout } from "../Store/Actions/userActions";
 
 function MainHeader() {
   const userSignin = useSelector(state=>state.userSignin);
@@ -17,6 +17,7 @@ function MainHeader() {
   const {userInfo} = userSignin;
  // const userInfo = Cookie.getJSON("userInfo");
   const history = useHistory();
+  const dispatch = useDispatch();
 
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -73,7 +74,7 @@ function MainHeader() {
                 } 
                 <Dropdown.Item onClick={()=>history.push('/cart')}>My Cart</Dropdown.Item>
                 <Dropdown.Item>Profile</Dropdown.Item>
-                <Dropdown.Item>Logout</Dropdown.Item>
+                <Dropdown.Item onClick={()=>dispatch(userSignout())}>Logout</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
           )}
